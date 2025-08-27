@@ -4,5 +4,13 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   base: '/react-performance/',
-  plugins: [react(), tsconfigPaths(), tailwindcss()],
+  plugins: [
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
+    tsconfigPaths(),
+    tailwindcss(),
+  ],
 });
