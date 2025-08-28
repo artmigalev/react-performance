@@ -1,7 +1,7 @@
 import { Column } from '@/utils/Column';
 
 export const Thead = () => {
-  const header = ['Country', 'Population', 'ISO'];
+  const header = ['Country', 'ISO', 'Population', ' CO₂ ', 'CO₂ personal'];
 
   return (
     <thead>

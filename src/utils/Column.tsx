@@ -9,6 +9,7 @@ export type ColumnProps = {
 };
 
 export const Column = ({ scope, text, code, co2 }: ColumnProps) => {
+  const defaultValue = 'N/A';
   const content =
     scope === 'col' ? (
       <th
@@ -22,8 +23,12 @@ export const Column = ({ scope, text, code, co2 }: ColumnProps) => {
         <th className="text-center  " scope="row">
           {text}
         </th>
-        <td className="text-center ">{co2?.population ?? 'N/A'}</td>
-        <td className="text-center ">{code}</td>
+        <td className="text-center ">{code ?? defaultValue}</td>
+        <td className="text-center ">{co2?.population ?? defaultValue}</td>
+        <td className="text-center ">{co2?.cement_co2 ?? defaultValue}</td>
+        <td className="text-center ">
+          {co2?.cement_co2_per_capita ?? defaultValue}
+        </td>
       </>
     );
 

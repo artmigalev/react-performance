@@ -12,6 +12,7 @@ export const Row = ({
   options,
 }: {
   name: CountryName;
+
   options: Country;
 }) => {
   const { iso_code, data } = options;

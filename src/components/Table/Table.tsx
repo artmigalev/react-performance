@@ -53,7 +53,6 @@ export const Table = (): JSX.Element => {
 
       <Suspense fallback={<Loader />}>
         <Tbody bodyProps={dataTable} />
-        {/* <Tbody bodyProps={dataTable} /> */}
       </Suspense>
       <tfoot></tfoot>
     </table>
