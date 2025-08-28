@@ -1,9 +1,10 @@
 import { Row } from '@/utils/Row';
 import type { TableState } from './Table';
+import type { JSX } from 'react';
 
 type TBodyProps = TableState;
 
-export const Tbody = ({ bodyProps }: { bodyProps: TBodyProps }) => {
+const Tbody = ({ bodyProps }: { bodyProps: TBodyProps }): JSX.Element => {
   console.log(bodyProps);
 
   const { ids, entities } = bodyProps;
@@ -19,3 +20,4 @@ export const Tbody = ({ bodyProps }: { bodyProps: TBodyProps }) => {
     </tbody>
   );
 };
+export default Tbody;

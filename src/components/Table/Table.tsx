@@ -1,8 +1,10 @@
-import { useEffect, useState, type JSX } from 'react';
+import { lazy, Suspense, useEffect, useState, type JSX } from 'react';
 import { Thead } from './Theader';
 import axios, { type AxiosResponse } from 'axios';
-import { Tbody } from './Tbody';
+// import { Tbody } from './Tbody';
 import './index.css';
+import Loader from '@/utils/Loader/Loader';
+import delayForDemo from '@/app/functions/functions';
 const dataJson = 'data/owid-co2-data.json';
 
 export type Co2 = {
@@ -25,6 +27,7 @@ export type TableState = {
   ids: Ids;
   entities: DataTable;
 };
+const Tbody = lazy(() => delayForDemo(import('./Tbody')));
 export const Table = (): JSX.Element => {
   const [dataTable, setDataTable] = useState<TableState>({
     ids: [],
@@ -47,7 +50,11 @@ export const Table = (): JSX.Element => {
         CO2 emissions data by countries
       </caption>
       <Thead />
-      <Tbody bodyProps={dataTable} />
+
+      <Suspense fallback={<Loader />}>
+        <Tbody bodyProps={dataTable} />
+        {/* <Tbody bodyProps={dataTable} /> */}
+      </Suspense>
       <tfoot></tfoot>
     </table>
   );
