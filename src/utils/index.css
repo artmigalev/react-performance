@@ -1,6 +1,6 @@
 th,
 td {
-  /* width: max-content; */
+  width: max-content;
   padding: 1rem;
   border: 1px solid black;
 }

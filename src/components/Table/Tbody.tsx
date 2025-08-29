@@ -5,8 +5,6 @@ import type { JSX } from 'react';
 type TBodyProps = TableState;
 
 const Tbody = ({ bodyProps }: { bodyProps: TBodyProps }): JSX.Element => {
-  console.log(bodyProps);
-
   const { ids, entities } = bodyProps;
   return (
     <tbody>

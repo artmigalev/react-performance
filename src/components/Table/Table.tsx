@@ -38,7 +38,6 @@ export const Table = (): JSX.Element => {
     axios.get(dataJson).then((resp: AxiosResponse<DataTable>) => {
       const ids: Ids = Object.keys(resp.data);
       const entities = resp.data;
-      console.log(entities);
 
       setDataTable({ ids: ids, entities: entities });
     });
@@ -50,10 +49,10 @@ export const Table = (): JSX.Element => {
         CO2 emissions data by countries
       </caption>
       <Thead />
-
       <Suspense fallback={<Loader />}>
         <Tbody bodyProps={dataTable} />
       </Suspense>
+
       <tfoot></tfoot>
     </table>
   );
